@@ -1,6 +1,6 @@
 export const formConfig = [
-  {type: 'text', label: 'Email', pattern: '^.*@.*$'},
+  {type: 'email', label: 'Email', pattern: '^.*@.*$'},
   {type: 'secret', label: 'Password', minLength: 8},
-  {type: 'secret', label: 'Repeat', minLength: 8},
+  {type: 'toggle', label: 'Remain logged in'},
   {type: 'submit', label: 'Login'},
 ];
