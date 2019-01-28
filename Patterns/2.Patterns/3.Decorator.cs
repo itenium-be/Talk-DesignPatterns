@@ -8,18 +8,18 @@ using System.Net.Sockets;
 
 namespace Patterns.Decorator
 {
-	class Uploader
-	{
-		public void UploadFile(byte[] fileContent)
-		{
-			Socket socket = new Socket(new SocketInformation());
+    class Uploader
+    {
+        public void UploadFile(byte[] fileContent)
+        {
+            Socket socket = new Socket(new SocketInformation());
 
-			using (NetworkStream network = new NetworkStream(socket))
-			using (DeflateStream deflate = new DeflateStream(network, CompressionMode.Compress))
-			using (BufferedStream buffered = new BufferedStream(deflate, 1024))
-			{
-				buffered.Write(fileContent, 0, fileContent.Length);
-			}
-		}
-	}
+            using (var network = new NetworkStream(socket))
+            using (var deflate = new DeflateStream(network, CompressionMode.Compress))
+            using (var buffered = new BufferedStream(deflate, 1024))
+            {
+                buffered.Write(fileContent, 0, fileContent.Length);
+            }
+        }
+    }
 }

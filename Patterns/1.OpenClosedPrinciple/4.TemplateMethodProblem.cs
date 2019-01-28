@@ -5,37 +5,37 @@ using System.Text;
 
 namespace Patterns.TemplateMethod.Problem
 {
-	class FileSystemUploader
-	{
-		public virtual void UploadFile(byte[] fileContent)
-		{
-			if (fileContent == null)
-				throw new ArgumentException("Kan niet null zijn", "fileContent");
+    class FileSystemUploader
+    {
+        public virtual void UploadFile(byte[] fileContent)
+        {
+            if (fileContent == null)
+                throw new ArgumentException("Kan niet null zijn", nameof(fileContent));
 
-			// Put file on network share
-		}
-	}
+            // Put file on network share
+        }
+    }
 
-	class FtpUploader : FileSystemUploader
-	{
-		public override void UploadFile(byte[] fileContent)
-		{
-			// DRY!
-			if (fileContent == null)
-				throw new ArgumentException("Kan niet null zijn", "fileContent");
+    class FtpUploader : FileSystemUploader
+    {
+        public override void UploadFile(byte[] fileContent)
+        {
+            // DRY!
+            if (fileContent == null)
+                throw new ArgumentException("Kan niet null zijn", nameof(fileContent));
 
-			// Upload the file
-		}
-	}
+            // Upload the file
+        }
+    }
 
-	class DropBoxUploader : FileSystemUploader
-	{
-		public override void UploadFile(byte[] fileContent)
-		{
-			// Forced to call the base!
-			base.UploadFile(fileContent);
+    class DropBoxUploader : FileSystemUploader
+    {
+        public override void UploadFile(byte[] fileContent)
+        {
+            // Forced to call the base!
+            base.UploadFile(fileContent);
 
-			Console.WriteLine("_dropBox.GetPublicShareUrl();");
-		}
-	}
+            Console.WriteLine("_dropBox.GetPublicShareUrl();");
+        }
+    }
 }
