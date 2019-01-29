@@ -7,7 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns", "Patterns\Patter
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{7E97C705-BAA8-46BA-98F7-F9FBACA02234}"
 	ProjectSection(SolutionItems) = preProject
-		CheatSheet.md = CheatSheet.md
+		..\CheatSheet.md = ..\CheatSheet.md
+		..\designpatterns-cheatsheet.pdf = ..\designpatterns-cheatsheet.pdf
+		..\Handout.md = ..\Handout.md
+		..\patterns.pptx = ..\patterns.pptx
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject

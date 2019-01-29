@@ -3,6 +3,12 @@ Design Patterns
 
 Introduction to Design Patterns given in 2012 for AC Partners and in 2019 for itenium.
 
+Some material:  
+- [JavaScript exercise info](Handout.md)
+- [Design Pattern definitions for this technical session](CheatSheet.md)
+- [All design patterns with UML diagrams](designpatterns-cheatsheet.pdf)
+
+
 JavaScript
 ==========
 
@@ -20,14 +26,20 @@ cd JavaScript/impl-angular
 npm start
 ```
 
-## Tags
+# JavaScript
 
-- v1-hard-coded: Entire form hardcoded
-- v2-from-config: Entire form from configuration
-	- PROBLEM: We can now only show an input field wrapped in a `.form-group`
-- v3-more-config-not-dry: Adding more configuration (placeholder & hint)
-	- BUG: `config.hint` should probably also be implemented for `secret` and `toggle`? How to keep this DRY?
-- v4-going-all-out: Setting up a framework that works with React/Angular and Bootstrap/Foundation
+See [Handout.md](Handout.md)
+
+
+## Exercise SOLID
+
+**Angular - Bootstrap - FormWrapperDirective**:  
+
+This high level component wraps a form control for use in a Bootstrap form  
+There are several problems:  
+
+- It has intimate knowledge of the low level controls (setting a specific extra class 'form-check' for 'toggle')
+- Another big switch statement is waiting to happen here: A control can also appear in a navbar, ... with different classes
 
 
 DotNet
