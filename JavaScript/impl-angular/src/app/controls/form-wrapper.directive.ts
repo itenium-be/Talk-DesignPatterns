@@ -16,7 +16,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 //    - Builder (?): Turn configuration into classes
 //    - AbstractFactory (?): Create the correct classes from angular/react and bootstrap/foundation
 //    - Decorator (?): This FormWrapperDirective could've been implemented with Decorator instead
-//    - Composite (?): The AbstractFactory may return a Composite
+//    - Composite (?): The AbstractFactory may return a Composite: Once of our controls may contain controls of their own
 //        - Visitor (?): If it did return a Composite, we could add extra behavior in an OCP way (validation, layouting, tooltips, ...)
 //        - Chain Of Responsibility (?): Events may be handled at different levels (the control itself, it's parent, the main window)
 //    - Mediator (?): React/Foundation/... is getting complex... Do we need a Mediator
@@ -29,6 +29,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 //    - Adapter (?): Make both Angular/React work with Bootstrap/Foundation
 
 
+// YAGNI: This turned out a poor abstraction as Foundation has no need for this FormWrapperDirective
 @Directive({
   selector: '[appFormWrapper]'
 })

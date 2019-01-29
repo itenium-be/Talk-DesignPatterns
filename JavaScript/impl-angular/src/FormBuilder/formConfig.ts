@@ -1,6 +1,7 @@
 export const environment = {
-  ui: 'React',
-  css: 'Bootstrap',
+  ui: 'React',      // React / Angular
+  css: 'Bootstrap', // Bootstrap / Foundation
+  cssUrl: null,
 };
 
 export class FormConfig {

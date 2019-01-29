@@ -2,13 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import * as Controls from './controls';
+import * as BootstrapControls from './controls/bootstrap';
+import * as FoundationControls from './controls/foundation';
 import { FormWrapperDirective } from './controls/form-wrapper.directive';
+import { environment } from '../FormBuilder/formConfig';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ...Object.values(Controls),
+    ...Object.values(environment.css === 'Bootstrap' ? BootstrapControls : FoundationControls),
 
     FormWrapperDirective,
   ],
