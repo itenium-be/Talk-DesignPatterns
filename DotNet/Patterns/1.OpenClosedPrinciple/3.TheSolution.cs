@@ -10,6 +10,8 @@ namespace SOLID.OpenClosedPrinciple.Solution
         double CalculateArea();
     }
 
+
+
     public class Rectangle : IAreaCalculator
     {
         public double Width { get; set; }
@@ -20,6 +22,8 @@ namespace SOLID.OpenClosedPrinciple.Solution
         }
     }
 
+
+
     public class Circle : IAreaCalculator
     {
         public double Radius { get; set; }
@@ -28,6 +32,8 @@ namespace SOLID.OpenClosedPrinciple.Solution
             return Radius * Radius * Math.PI;
         }
     }
+
+
 
     public class OpenClosedAreaCalculator
     {
@@ -38,7 +44,6 @@ namespace SOLID.OpenClosedPrinciple.Solution
             {
                 area += shape.CalculateArea();
             }
-
             return area;
         }
     }

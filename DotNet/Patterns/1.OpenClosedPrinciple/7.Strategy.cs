@@ -29,6 +29,8 @@ namespace Patterns.Strategy
         }
     }
 
+
+
     abstract class UploadStrategy
     {
         public virtual void SetUpHook() { }
@@ -37,6 +39,8 @@ namespace Patterns.Strategy
 
         public virtual void BreakDownHook() { }
     }
+
+
 
     class DropBoxUploader : UploadStrategy
     {

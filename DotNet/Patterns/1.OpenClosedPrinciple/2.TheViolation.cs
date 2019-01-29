@@ -18,18 +18,18 @@ namespace SOLID.OpenClosedPrinciple.Violation
             double area = 0;
             foreach (var shape in shapes)
             {
-                if (shape is Rectangle)
+                if (shape is Rectangle rectangle)
                 {
-                    Rectangle rectangle = (Rectangle)shape;
                     area += rectangle.Width * rectangle.Height;
                 }
-                else
+                else if (shape is Circle circle)
                 {
-                    Circle circle = (Circle)shape;
                     area += circle.Radius * circle.Radius * Math.PI;
                 }
                 // Fool me once, shame on you. Fool me twice, shame on me.
-                // Triangles, Elipses, ...
+                // Triangles, Ellipses, ...
+
+                // Tell, Don't Ask
             }
 
             return area;

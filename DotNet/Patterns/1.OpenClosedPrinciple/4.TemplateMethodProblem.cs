@@ -12,29 +12,34 @@ namespace Patterns.TemplateMethod.Problem
             if (fileContent == null)
                 throw new ArgumentException("Kan niet null zijn", nameof(fileContent));
 
-            // Put file on network share
+            // TODO: Put file on network share
         }
     }
+
+
 
     class FtpUploader : FileSystemUploader
     {
         public override void UploadFile(byte[] fileContent)
         {
-            // DRY!
+            // Code repeated from FileSystemUploader ==> Not DRY!
             if (fileContent == null)
                 throw new ArgumentException("Kan niet null zijn", nameof(fileContent));
 
-            // Upload the file
+            // TODO: Upload the file
         }
     }
+
+
 
     class DropBoxUploader : FileSystemUploader
     {
         public override void UploadFile(byte[] fileContent)
         {
-            // Forced to call the base!
+            // Also not dry when using inheritance: Forced to call the base!
             base.UploadFile(fileContent);
 
+            // Do other interesting stuff
             Console.WriteLine("_dropBox.GetPublicShareUrl();");
         }
     }

@@ -26,11 +26,15 @@ namespace Patterns.FactoryMethod
         protected virtual void BreakDownHook() { }
     }
 
+
+
     class UploadResult
     {
         public UploadResult(string location) { Location = location; }
         public string Location { private set; get; }
     }
+
+
 
     class FtpUploader : UploaderBase
     {
@@ -50,6 +54,8 @@ namespace Patterns.FactoryMethod
             // Close FTP connection
         }
     }
+
+
 
     class DropBoxUploader : UploaderBase
     {

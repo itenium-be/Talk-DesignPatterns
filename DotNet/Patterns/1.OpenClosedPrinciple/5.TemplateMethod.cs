@@ -25,6 +25,18 @@ namespace Patterns.TemplateMethod
         protected virtual void BreakDownHook() { }
     }
 
+
+
+    class FileSystemUploader : UploaderBase
+    {
+        protected override void UploadFileCore(byte[] fileContent)
+        {
+            File.WriteAllBytes(@"c:\temp\file.txt", fileContent);
+        }
+    }
+
+
+
     class FtpUploader : UploaderBase
     {
         protected override void SetUpHook()
@@ -42,6 +54,8 @@ namespace Patterns.TemplateMethod
             // Close FTP connection
         }
     }
+
+
 
     class DropBoxUploader : UploaderBase
     {
