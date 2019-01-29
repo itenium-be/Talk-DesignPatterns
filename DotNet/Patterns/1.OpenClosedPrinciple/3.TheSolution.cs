@@ -39,12 +39,7 @@ namespace SOLID.OpenClosedPrinciple.Solution
     {
         public double Area(IAreaCalculator[] shapes)
         {
-            double area = 0;
-            foreach (var shape in shapes)
-            {
-                area += shape.CalculateArea();
-            }
-            return area;
+            return shapes.Sum(shape => shape.CalculateArea());
         }
     }
 }
