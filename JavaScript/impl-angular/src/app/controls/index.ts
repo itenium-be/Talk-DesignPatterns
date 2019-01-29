@@ -5,7 +5,8 @@ import { Component, Input } from '@angular/core';
   template: `
     <div class="form-group">
       <label>{{ config.label }}</label>
-      <input type="email" class="form-control" />
+      <input type="email" class="form-control" [placeholder]="config.placeholder" />
+      <small class="form-text text-muted">{{ config.hint }}</small>
     </div>
 `})
 export class EmailComponent {
@@ -19,7 +20,7 @@ export class EmailComponent {
   template: `
     <div class="form-group">
       <label>{{ config.label }}</label>
-      <input type="password" class="form-control" />
+      <input type="password" class="form-control" [placeholder]="config.placeholder" />
     </div>
 `})
 export class SecretComponent {

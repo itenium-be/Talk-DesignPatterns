@@ -6,7 +6,8 @@ export class Email extends Component {
     return (
       <div className="form-group">
         <label>{config.label}</label>
-        <input type="email" className="form-control" />
+        <input type="email" className="form-control" placeholder={config.placeholder} />
+        <small className="form-text text-muted">{config.hint}</small>
       </div>
     );
   }
@@ -18,7 +19,7 @@ export class Secret extends Component {
     return (
       <div className="form-group">
         <label>{config.label}</label>
-        <input type="password" className="form-control" />
+        <input type="password" className="form-control" placeholder={config.placeholder} />
       </div>
     );
   }
