@@ -17,7 +17,8 @@ export class EmailComponent {
 @Component({
   selector: 'app-secret',
   template: `
-     <label>{{ config.label }}
+    <label>
+      {{ config.label }}
       <input type="password"  [placeholder]="config.placeholder">
     </label>
 `})
@@ -30,7 +31,8 @@ export class SecretComponent {
 @Component({
   selector: 'app-toggle',
   template: `
-    <input type="checkbox"><label>{{ config.label }}</label>
+    <input type="checkbox">
+    <label>{{ config.label }}</label>
 `})
 export class ToggleComponent {
   @Input() config: any;

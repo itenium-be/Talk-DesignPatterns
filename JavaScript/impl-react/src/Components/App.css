@@ -1,7 +1,7 @@
-.navbar {
+.navbar, .top-bar {
 	margin-bottom: 25px;
 }
 
-.container {
-	width: 400px;
+.container, .grid-container {
+	width: 400px !important;
 }
