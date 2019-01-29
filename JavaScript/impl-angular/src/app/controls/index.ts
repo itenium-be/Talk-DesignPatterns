@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-email',
   template: `
-    <div class="form-group">
+    <div appFormWrapper>
       <label>{{ config.label }}</label>
       <input type="email" class="form-control" [placeholder]="config.placeholder" />
       <small class="form-text text-muted">{{ config.hint }}</small>
@@ -14,11 +14,10 @@ export class EmailComponent {
 }
 
 
-
 @Component({
   selector: 'app-secret',
   template: `
-    <div class="form-group">
+    <div appFormWrapper>
       <label>{{ config.label }}</label>
       <input type="password" class="form-control" [placeholder]="config.placeholder" />
     </div>
@@ -32,7 +31,7 @@ export class SecretComponent {
 @Component({
   selector: 'app-toggle',
   template: `
-    <div class="form-group form-check">
+    <div [appFormWrapper]="config">
       <input type="checkbox" class="form-check-input" />
       <label class="form-check-label">{{ config.label }}</label>
     </div>

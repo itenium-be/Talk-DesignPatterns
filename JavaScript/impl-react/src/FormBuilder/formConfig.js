@@ -1,3 +1,16 @@
+export const environment = {
+  ui: 'React',
+  css: 'Bootstrap',
+};
+
+export class FormConfig {
+  constructor(config, env) {
+    Object.assign(this, config);
+    this.env = env;
+  }
+}
+
+
 export const formConfig = [
   {
     type: 'email',
@@ -9,4 +22,5 @@ export const formConfig = [
   {type: 'secret', label: 'Password', minLength: 8, placeholder: 'Password'},
   {type: 'toggle', label: 'Remain logged in'},
   {type: 'submit', label: 'Login'},
-];
+
+].map(config => new FormConfig(config, environment));

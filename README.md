@@ -22,10 +22,12 @@ npm start
 
 ## Tags
 
-- v1-hard-coded
-- v2-from-config
-
-
+- v1-hard-coded: Entire form hardcoded
+- v2-from-config: Entire form from configuration
+	- PROBLEM: We can now only show an input field wrapped in a `.form-group`
+- v3-more-config-not-dry: Adding more configuration (placeholder & hint)
+	- BUG: `config.hint` should probably also be implemented for `secret` and `toggle`? How to keep this DRY?
+- v4-going-all-out: Setting up a framework that works with React/Angular and Bootstrap/Foundation
 
 
 DotNet
