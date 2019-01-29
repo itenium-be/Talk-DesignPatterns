@@ -3,6 +3,30 @@ Design Patterns
 
 Introduction to Design Patterns given in 2012 for AC Partners and in 2019 for itenium.
 
+JavaScript
+==========
+
+Creating a framework for generating user forms:
+
+```
+npm install
+
+# React
+cd JavaScript/impl-react
+npm start
+
+# Angular
+cd JavaScript/impl-angular
+npm start
+```
+
+## Tags
+
+- v1-hard-coded
+- v2-from-config
+
+
+
 
 DotNet
 ======

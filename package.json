@@ -1,0 +1,20 @@
+{
+  "name": "DesignPatterns",
+  "version": "1.0.0",
+  "description": "Design Patterns",
+  "main": "index.js",
+  "scripts": {
+    "install": "cd javascript/impl-angular && npm i && cd ../impl-react && npm i && cd ../.."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itenium-be/Talk-DesignPatterns.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itenium-be/Talk-DesignPatterns/issues"
+  },
+  "homepage": "https://github.com/itenium-be/Talk-DesignPatterns#readme"
+}
