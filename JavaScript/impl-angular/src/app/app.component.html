@@ -4,7 +4,18 @@
   </nav>
 
   <div class="container">
-    <form>
+    <form *ngIf="true">
+      <div *ngFor="let config of formConfig" [ngSwitch]="config.type">
+        <app-email *ngSwitchCase="'email'" [config]="config"></app-email>
+        <app-secret *ngSwitchCase="'secret'" [config]="config"></app-secret>
+        <app-toggle *ngSwitchCase="'toggle'" [config]="config"></app-toggle>
+        <app-submit *ngSwitchCase="'submit'" [config]="config"></app-submit>
+      </div>
+    </form>
+
+
+
+    <form *ngIf="false">
       <div class="form-group">
         <label>Email</label>
         <input type="email" class="form-control" />
