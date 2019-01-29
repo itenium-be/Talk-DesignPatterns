@@ -21,11 +21,15 @@ namespace Patterns.Observer
         }
     }
 
+
+
     class FileUploadedEventArgs : EventArgs
     {
         public FileUploadedEventArgs(string location) { Location = location; }
         public string Location { private set; get; }
     }
+
+
 
     class UserNotificator
     {
