@@ -26,7 +26,7 @@ Separate the construction of a complex object from its representation so that th
 process can create different representations. (.NET/Java: StringBuilder)
 
 
-## AbstractFactory (Creational)
+## Abstract Factory (Creational)
 
 Provide an interface for creating families of related or dependent objects without
 specifying their concrete classes.
@@ -57,7 +57,7 @@ Chain the receiving objects and pass the request along the chain until an object
 
 ## Mediator (Behavioral)
 
-Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by jeeping objects from 
+Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from 
 referring to each other explicitly, and it lets you vary their interaction independently.
 
 
@@ -83,3 +83,8 @@ Allow an object to alter its behavior when its internal state changes. The objec
 
 Convert the interface of a class into another interface clients expect. Adapter lets classes work together that
 couldn't otherwise because of incompatible interfaces.
+
+
+## Bridge (Structural)
+
+Decouple an abstraction from its implementation so that the two can vary independently.

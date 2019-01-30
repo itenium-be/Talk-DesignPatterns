@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   }
 }
 
-
+// To change between Bootstrap/Foundation with a button:
 // Would need to change global configuration and reload module like below:
 // function tryBootstrapNewApplication(tagName) {
 //   const newNode = document.createElement(tagName);

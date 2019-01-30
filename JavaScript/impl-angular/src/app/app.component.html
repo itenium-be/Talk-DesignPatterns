@@ -8,6 +8,8 @@
   </nav>
 
   <div class="container">
+    <!-- Could use a NgComponentOutlet for this instead. -->
+    <!-- https://angular.io/api/common/NgComponentOutlet -->
     <form>
       <div *ngFor="let config of formConfig" [ngSwitch]="config.type">
         <app-email *ngSwitchCase="'email'" [config]="config"></app-email>
