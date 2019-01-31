@@ -72,3 +72,7 @@ Keeping the code DRY:
 
 - 1-2.Observer: Examples of Observer: builtin support with `event EventHandler<EventArgs>`
 - 3.Decorator: Example with Streams
+
+
+
+TODO: De CheatSheet zouden moeten genummerd zijn
