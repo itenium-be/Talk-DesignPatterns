@@ -4,54 +4,53 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
+// Factory Method
+// Define an interface for creating an object, but let subclasses decide which class to instantiate.
+// Factory Method lets a class defer instantiation to subclasses.
+
 namespace Patterns.FactoryMethod
 {
+    // The class to instantiate
+    class UploadResult { }
+
+
+
     abstract class UploaderBase
     {
-        public UploadResult UploadFile(byte[] fileContent)
+        // Define an interface for creating an object
+        public UploadResult UploadFile(byte[] fileContent) 
         {
-            if (fileContent == null)
-                throw new ArgumentException("Kan niet null zijn", nameof(fileContent));
-
-            SetUpHook();
+            // Let subclasses decide which class to instantiate
             UploadResult result = UploadFileCore(fileContent);
-            BreakDownHook();
             return result;
         }
 
-        protected virtual void SetUpHook() { }
-
+        // The Factory Method
         protected abstract UploadResult UploadFileCore(byte[] fileContent);
-
-        protected virtual void BreakDownHook() { }
     }
 
-
-
-    class UploadResult
-    {
-        public UploadResult(string location) { Location = location; }
-        public string Location { private set; get; }
-    }
-
+    
 
 
     class FtpUploader : UploaderBase
     {
-        protected override void SetUpHook()
-        {
-            // Connect to FTP server
-        }
-
         protected override UploadResult UploadFileCore(byte[] fileContent)
         {
-            string location = ""; // _ftp.PutFreeFile(fileContent);
-            return new UploadResult(location);
+            return new UploadResult(); // <-- Instantiation deferred to subclass
         }
+    }
 
-        protected override void BreakDownHook()
+
+
+
+
+
+    class DropBoxUploadResult : UploadResult
+    {
+        public string PublicShareUrl { private set; get; }
+        public DropBoxUploadResult(string publicShareUrl)
         {
-            // Close FTP connection
+            PublicShareUrl = publicShareUrl;
         }
     }
 
@@ -59,23 +58,10 @@ namespace Patterns.FactoryMethod
 
     class DropBoxUploader : UploaderBase
     {
-        public const string RootDropBoxFolder = @"c:\dropbox\";
-
         protected override UploadResult UploadFileCore(byte[] fileContent)
         {
-            string location = RootDropBoxFolder + "file.txt";
-            File.WriteAllBytes(location, fileContent);
-            return new DropBoxUploadResult(location, "_dropBox.GetPublicShare(RootDropBoxFolder)");
-        }
-
-        class DropBoxUploadResult : UploadResult
-        {
-            public string PublicShareUrl { private set; get; }
-            public DropBoxUploadResult(string location, string publicShareUrl)
-                : base(location)
-            {
-                PublicShareUrl = publicShareUrl;
-            }
+            File.WriteAllBytes("file.txt", fileContent);
+            return new DropBoxUploadResult("_dropBox.GetPublicShare(RootDropBoxFolder)");
         }
     }
 }

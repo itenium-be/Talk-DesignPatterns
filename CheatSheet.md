@@ -63,7 +63,7 @@ referring to each other explicitly, and it lets you vary their interaction indep
 
 ## Memento (Behavioral)
 
-Without violating encapsulation, capture and externalize an objects's internal state so that the object can be restored
+Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored
 to this state later.
 
 
