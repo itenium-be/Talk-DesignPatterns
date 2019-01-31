@@ -4,7 +4,7 @@
   "description": "Design Patterns",
   "main": "index.js",
   "scripts": {
-    "install": "cd javascript/impl-angular && npm i && cd ../impl-react && npm i && cd ../.."
+    "install": "cd JavaScript/impl-angular && npm i && cd ../impl-react && npm i && cd ../.."
   },
   "repository": {
     "type": "git",
