@@ -4,14 +4,70 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
+// Strategy
+// Define a family of algorithms, encapsulate each one, and make them interchangeable.
+// Strategy lets the algorithm vary independently from clients that use it.
+
 namespace Patterns.Strategy
 {
+    // Defining a family of 'File Uploading' algorithms
+    interface IUploadStrategy
+    {
+        void SetUpHook();
+        void UploadFile(byte[] fileContent);
+        void BreakDownHook();
+    }
+
+    abstract class UploadStrategy : IUploadStrategy
+    {
+        public virtual void SetUpHook() { }
+        public abstract void UploadFile(byte[] fileContent);
+        public virtual void BreakDownHook() { }
+    }
+
+    // Encapsulate each one
+    class DropBoxUploadStrategy : UploadStrategy
+    {
+        public override void UploadFile(byte[] fileContent)
+        {
+            File.WriteAllBytes("file.txt", fileContent);
+        }
+    }
+
+    class FtpUploadStrategy : IUploadStrategy
+    {
+        public void SetUpHook()
+        {
+            // Connect to FTP server
+        }
+
+        public void UploadFile(byte[] fileContent)
+        {
+            // _ftp.PutFreeFile(fileContent);
+        }
+
+        public void BreakDownHook()
+        {
+            // Close FTP connection
+        }
+    }
+
+
+
+    // The algorithm may vary independently from clients that use it
     class Uploader
     {
+        private readonly IUploadStrategy _strategy;
+
+        public Uploader(IUploadStrategy strategy)
+        {
+            _strategy = strategy;
+        }
+
         public void UploadFiles(params string[] files)
         {
-            if (files == null || files.Length == 0)
-                throw new ArgumentException("Kan niet null of leeg zijn", nameof(files));
+            if (files == null)
+                throw new ArgumentNullException(nameof(files));
 
             _strategy.SetUpHook();
             foreach (string file in files)
@@ -19,48 +75,6 @@ namespace Patterns.Strategy
                 _strategy.UploadFile(File.ReadAllBytes(file));
             }
             _strategy.BreakDownHook();
-        }
-
-        private readonly UploadStrategy _strategy;
-        public Uploader(UploadStrategy strategy)
-        {
-            // Constructor Dependency Injection
-            _strategy = strategy;
-        }
-    }
-
-
-
-    abstract class UploadStrategy
-    {
-        public virtual void SetUpHook() { }
-
-        public abstract void UploadFile(byte[] fileContent);
-
-        public virtual void BreakDownHook() { }
-    }
-
-
-
-    class DropBoxUploader : UploadStrategy
-    {
-        public string RootDropBoxFolder { get; private set; }
-
-        public DropBoxUploader()
-            : this(@"c:\dropbox\")
-        {
-            // Backwards compatibility
-        }
-
-        public DropBoxUploader(string dropBoxPath)
-        {
-            RootDropBoxFolder = dropBoxPath;
-        }
-
-        public override void UploadFile(byte[] fileContent)
-        {
-            string location = RootDropBoxFolder + "file.txt";
-            File.WriteAllBytes(location, fileContent);
         }
     }
 }

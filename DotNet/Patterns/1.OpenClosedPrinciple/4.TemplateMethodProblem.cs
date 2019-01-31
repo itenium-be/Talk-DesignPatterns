@@ -23,8 +23,9 @@ namespace Patterns.TemplateMethod.Problem
         public override void UploadFile(byte[] fileContent)
         {
             // Code repeated from FileSystemUploader ==> Not DRY!
+            // Already out of sync!?
             if (fileContent == null)
-                throw new ArgumentException("Kan niet null zijn", nameof(fileContent));
+                throw new ArgumentNullException(nameof(fileContent));
 
             // TODO: Upload the file
         }
@@ -36,8 +37,9 @@ namespace Patterns.TemplateMethod.Problem
     {
         public override void UploadFile(byte[] fileContent)
         {
-            // Also not dry when using inheritance: Forced to call the base!
             base.UploadFile(fileContent);
+            // Still not (completely) dry: Forced to call the base!
+
 
             // Do other interesting stuff
             Console.WriteLine("_dropBox.GetPublicShareUrl();");
